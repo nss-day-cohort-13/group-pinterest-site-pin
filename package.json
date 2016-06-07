@@ -1,0 +1,19 @@
+{
+  "name": "group-pinterest-site-pin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nss-day-cohort-13/group-pinterest-site-pin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nss-day-cohort-13/group-pinterest-site-pin/issues"
+  },
+  "homepage": "https://github.com/nss-day-cohort-13/group-pinterest-site-pin#readme"
+}
