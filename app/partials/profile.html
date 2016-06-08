@@ -1,1 +1,15 @@
-<h1>profile</h1> <!-- just for testing to make sure the page actually loaded -->
+<h1>Profile</h1> <!-- just for testing to make sure the page actually loaded -->
+<h2>Users Name</h2> <!-- change to angular {{}} later once we grab the users name from the login -->
+
+<button type="button" class="btn btn-primary" ng-click="">Make A Board</button>
+
+<div ng-repeat="">
+  <h3>Board Title</h3> <!-- change to angular {{}} later once we grab the board name from the creation function -->
+  <h4>url</h4>
+  <h4>description</h4>
+  <a class="btn btn-warning" href="#/addresses/{{$index}}/edit"> <!-- href needs proper reference -->
+  Edit</a>
+  <button class="btn btn-danger" ng-click="address.delete($index)"><!-- ng-click needs proper fuction to the delete function -->
+  Delete</button>
+</div>
+
