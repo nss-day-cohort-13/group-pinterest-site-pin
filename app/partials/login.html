@@ -1,8 +1,8 @@
 <h1>Site Pin</h1> <!-- just for testing to make sure the page actually loaded -->
 <h2>Login</h2>
-<form ng-submit="">
-  <input type="email" ng-model="" placeholder="email" />
-  <input type="password" ng-model="" placeholder="password" />
+<form ng-submit="auth.login()">
+  <input type="email" ng-model="email" placeholder="email" />
+  <input type="password" ng-model="password" placeholder="password" />
   <input type="submit" value="Login" />
 </form>
 

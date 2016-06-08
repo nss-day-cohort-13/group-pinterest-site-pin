@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ui.bootstrap']) //
+angular.module('app', ['ngRoute', 'ui.bootstrap'])
   console.log("hello");
 
   // Initialize Firebase
