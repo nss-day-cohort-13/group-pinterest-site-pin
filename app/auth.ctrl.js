@@ -1,21 +1,14 @@
 angular.module('app')
-  .controller('AuthCtrl', function () {
+  .controller('AuthCtrl', function ($location, firebaseFactory) {
     const auth = this // auth is controllerAS
 
-    auth.login
+
+    auth.login = function () {
+      console.log("fire?", auth.email, auth.password );
+      firebaseFactory.login(auth.email, auth.password)
+    }
+
+    auth.register = function () {
+      firebaseFactory.register(auth.email, auth.password)
+    }
   })
-
-
-
-
-
-  // angular.module('app')
-  //   .controller('LoginCtrl', function ($location, AuthFactory) {
-  //     const auth = this
-
-  //     auth.login = function () {
-  //       AuthFactory.login(auth.user.email, auth.user.password)
-  //         .then(() => $location.path('/addresses'))
-  //         .catch(() => alert('Login Failed'))
-  //     }
-  //   })

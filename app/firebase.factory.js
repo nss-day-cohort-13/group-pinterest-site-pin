@@ -1,57 +1,50 @@
 angular.module('app')
-  .factory('firebaseFactory', () => {
+  .factory('firebaseFactory', ($location, $timeout) => {
 
     let currentUser = null
 
-    return {
-
-    // .auth() - Authenticates a Firebase client using the provided authentication token or Firebase Secret.
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //     if (user) {
-    //         // User is signed in
-    //         var email = user.email;
-    //         // ...
-    //     } else {
-    //         // User is not signed in
-    //         // ...
-    //     }
-    // });
-    // firebase.auth().signInWithEmailAndPassword(email, password);
-    // }
-
-
-
-
-
-
-    //
-    var ref = new Firebase("https://site-pin.firebaseio.com");
-     ref.auth(function(authData) {
-      if (authData) {
-        console.log("Authenticated with uid:", authData.uid);
+    // Listener that fires on logout or login state of change
+    firebase.auth().onAuthStateChanged(function(user) {
+      console.log("fired state of change fucntion on firebase.factory.js");
+      if (user) {
+        currentUser = user;
+        $location.path('/profile');
+        $timeout()
       } else {
-        console.log("Client unauthenticated.")
+        currentUser = null;
+        $location.path('/');
+        $timeout()
       }
     });
-    // returning currentUser so it can be accessed through 'firebaseFactory' in other files
-    getUser () {
-      return currentUser;
+
+    return {
+      // register function
+      register (email, password) {
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          console.log("Error via register function", error.message);
+          var errorCode = error.code;
+          var errorMessage = error.message;
+        });
+      },
+      // login function
+      login (email, password) {
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          console.log("Error via loging function", error.message);
+          var errorCode = error.code;
+          var errorMessage = error.message;
+        });
+      },
+
+      // returning currentUser so it can be accessed through 'firebaseFactory' in other files
+      getUser () {
+        return currentUser;
+      }
+
     }
 
-
-
-    // var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
-    // ref.auth("AUTH_TOKEN", function(error, result) {
-    //   if (error) {
-    //     console.log("Authentication Failed!", error);
-    //   } else {
-    //     console.log("Authenticated successfully with payload:", result.auth);
-    //     console.log("Auth expires at:", new Date(result.expires * 1000));
-    //   }
-    // });
-
-  })
-
+})
 
 
 

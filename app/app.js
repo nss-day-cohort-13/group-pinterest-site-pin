@@ -8,3 +8,4 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
     databaseURL: "https://site-pin.firebaseio.com",
     storageBucket: "site-pin.appspot.com",
   });
+firebase.auth().signOut()
