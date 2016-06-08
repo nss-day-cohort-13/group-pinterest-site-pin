@@ -1,5 +1,5 @@
 angular.module('app')
-  .factory('firebaseFactory', ($location, $timeout) => {
+  .factory('firebaseFactory', ($location, $timeout, $http) => {
 
     let currentUser = null
 
@@ -17,10 +17,23 @@ angular.module('app')
       }
     });
 
+    createUser = function (user) {
+      let newUser = {
+        email: user.email,
+        uid: user.uid
+      }
+
+      $http.post(`https://site-pin.firebaseio.com/app/user.json`, newUser).then();
+
+
+    }
+
     return {
       // register function
       register (email, password) {
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(user => createUser(user))
+        .catch(function(error) {
           // Handle Errors here.
           console.log("Error via register function", error.message);
           var errorCode = error.code;
