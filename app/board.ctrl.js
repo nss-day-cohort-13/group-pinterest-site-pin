@@ -1,4 +1,4 @@
 angular.module('app')
   .controller('BoardCtrl', function () {
-    const board = this
+    const board = this // board is controllerAS
   })

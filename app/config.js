@@ -11,10 +11,10 @@ angular.module('app')
         controllerAs: 'profile',
         templateUrl: 'app/partials/profile.html',
       })
-      .when('/profile/board', { // ~ /:id/userProfile/:id/userboard
+      .when('/profile/board', { // ~ /:id/userProfile/:id/userboard ~
         controller: 'BoardCtrl',
         controllerAs: 'board',
-        templateUrl: 'app/partials/hello.html',
+        templateUrl: 'app/partials/board.html',
       })
       .otherwise('/')
   })
