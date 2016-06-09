@@ -1,5 +1,6 @@
 angular.module('app', ['ngRoute', 'ui.bootstrap'])
   console.log("hello");
+  // .constant('FB_URL', 'https://site-pin.firebaseio.com/app/user.json')
 
   // Initialize Firebase
   firebase.initializeApp({
@@ -8,4 +9,6 @@ angular.module('app', ['ngRoute', 'ui.bootstrap'])
     databaseURL: "https://site-pin.firebaseio.com",
     storageBucket: "site-pin.appspot.com",
   });
-firebase.auth().signOut()
+
+  // hardcoded logout, comment out / delete once we make a logout button
+  firebase.auth().signOut()
