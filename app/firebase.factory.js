@@ -25,6 +25,7 @@ angular.module('app')
         uid: user.uid,
       }
       $http.post(`https://site-pin.firebaseio.com/app/user.json`, newUser).then(); // here we post to firebase via the key we made in firebase called user. The second argument 'newUser' is the object we made to be posted in firebase.
+      // $http.post(`${FB_URL}/user.json`, newUser).then(); // here we post to firebase via the key we made in firebase called user. The second argument 'newUser' is the object we made to be posted in firebase.
     }
 
 
